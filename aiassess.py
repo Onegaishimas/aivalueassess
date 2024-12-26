@@ -10,13 +10,19 @@ output_file_jsonl = "artifact/ai_use_case_analysis.jsonl"
 
 # # OpenAI API 
 # api_url = "https://api.openai.com/v1"
-# str_api_key="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"
+# # load api key from .env_val file...syntax [OPENAI_API_KEY="your_api_key"]
+# from dotenv import load_dotenv
+# import os
+# load_dotenv('.env_vals')
+# str_api_key = os.getenv('OPENAI_API_KEY')
 # model_name="gpt-4"
 
 # Ollama API
 api_url = "http://192.168.244.61:5500/v1"
 str_api_key="ollama"
 model_name="wizard-vicuna-uncensored:30b"
+
+#################################################################################################
 
 import pandas as pd
 import openai
