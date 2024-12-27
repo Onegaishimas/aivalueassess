@@ -1,5 +1,5 @@
 # Specify number of use cases to process or use "All" for the entire file
-num_to_process = "50" #input("Enter the number of use cases to process (or 'All' for all use cases): ").strip()
+num_to_process = "3" #input("Enter the number of use cases to process (or 'All' for all use cases): ").strip()
 
 # Set the input file path
 input_file = "artifact/ai_uc_inventory-dhs.xlsx"
@@ -62,8 +62,9 @@ for index, row in data_to_process.iterrows():
     # Construct the prompt
     prompt = f"""
 
-Analyze the following AI use case comprehensively:
+Analyze the following AI use case <use_case> comprehensively:
 
+<use_case>
 **Details:**
 - Use Case ID: {usecase_id}
 - Agency: {agency}
@@ -71,24 +72,31 @@ Analyze the following AI use case comprehensively:
 - Purpose Statement: {purpose_statement}
 - Benefit Statement: {benefit_statement}
 - System Outputs: {system_outputs}
+</use_case>
 
 Address the following key areas in your response:
+AA. **Named Entity Relationships**: Extract named entities in <use_case>. Provide output with values grouped by the following keys: PERSON, ORGANIZATION, LOCATION, DATE.**
 
-1. **Categorization of Value Creation**: Categorize the use case as one of the following types—Efficiency Amplifier, Capability Enhancer, or Breakthrough Enabler. Provide a detailed justification for your categorization based on the purpose statement, system outputs, and implementation context.
+BB. **Dependency Parse**: Extract the grammatical relationships in <use_case>. Identify the dependency relationships between words and the head words for each dependent. Provide the output in a structured format.
 
-2. **Operational Impact**: Identify the potential operational impact of the use case, including improvements in process efficiencies, capability expansions, or the introduction of new operational paradigms. Highlight specific benefits and implications.
+CC: **User Stories**: Provide a series of user stories that describe the <use_case> from the perspective of different entities, relationships, and dependencies. Each user story should include a role, goal, and benefit statement. 
 
-3. **Transformation Potential**: Evaluate the transformation potential of the use case by assessing how it aligns with or departs from traditional workflows, operational limitations, or technological boundaries. Explain the significance of this transformation.
+01. **Categorization of Value Creation**: Categorize the use case as one of the following types—Efficiency Amplifier, Capability Enhancer, or Breakthrough Enabler. Provide a detailed justification for your categorization based on the purpose statement, system outputs, and implementation context.
 
-4. **Risks and Mitigation Strategies**: Identify potential risks associated with the use case (e.g., ethical concerns, biases, or operational dependencies). Suggest effective mitigation strategies to address these risks.
+02. **Operational Impact**: Identify the potential operational impact of the use case, including improvements in process efficiencies, capability expansions, or the introduction of new operational paradigms. Highlight specific benefits and implications.
 
-5. **Indicators of Value Creation**: Highlight key indicators of value creation, such as operational metrics, organizational benefits, or societal impacts. Distinguish between explicit and implicit value drivers.
+03. **Transformation Potential**: Evaluate the transformation potential of the use case by assessing how it aligns with or departs from traditional workflows, operational limitations, or technological boundaries. Explain the significance of this transformation.
 
-6. **Comparison to Similar Use Cases**: Compare the use case to previously documented ones. Identify similarities and differences in objectives, outputs, and implementation contexts. Derive lessons or patterns that can be applied to enhance the effectiveness of the use case.
+04. **Risks and Mitigation Strategies**: Identify potential risks associated with the use case (e.g., ethical concerns, biases, or operational dependencies). Suggest effective mitigation strategies to address these risks.
 
-7. **Recommendations for Improvement**: Provide actionable recommendations to improve the clarity, alignment, and strategic articulation of the use case. Ensure that these recommendations address any identified gaps or opportunities for enhancement.
+05. **Indicators of Value Creation**: Highlight key indicators of value creation, such as operational metrics, organizational benefits, or societal impacts. Distinguish between explicit and implicit value drivers.
+
+06. **Comparison to Similar Use Cases**: Compare the use case to previously documented ones. Identify similarities and differences in objectives, outputs, and implementation contexts. Derive lessons or patterns that can be applied to enhance the effectiveness of the use case.
+
+07. **Recommendations for Improvement**: Provide actionable recommendations to improve the clarity, alignment, and strategic articulation of the use case. Ensure that these recommendations address any identified gaps or opportunities for enhancement.
 
 Please provide a structured and detailed response addressing all points above.
+
 """
 
     try:
