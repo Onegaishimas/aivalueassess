@@ -1,6 +1,13 @@
 import json
 
-def json_to_md(json_file, md_file):
+def json_to_md(base_path):
+
+    json_file = f"{base_path}.json"  # Path to your JSON file
+    md_file = f"{base_path}.md"    # Path to your Markdown file
+
+    print(json_file)
+    print(md_file)
+
     """
     Convert a JSON file to Markdown format and save the result to an output Markdown file.
 
@@ -39,7 +46,9 @@ def json_to_md(json_file, md_file):
         print(f"An error occurred: {e}")
 
 # Example usage
-json_file = '../artifact/ai_use_case_analysis.openai.json'  # Path to your JSON file
-md_file = '../artifact/ai_use_case_analysis.md'  # Path to your Markdown file
 
-json_to_md(json_file, md_file)
+base_path = '../artifact/ai_use_case_analysis.openai'   # Base path for the JSON and Markdown files
+
+# Convert the JSON file to Markdown
+json_to_md(base_path)
+
