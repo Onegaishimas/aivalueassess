@@ -45,9 +45,9 @@ def json_to_md(base_path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-# Example usage
-
 # base_path = '../artifact/ai_use_case_analysis.openai'   # Base path for the openai generated JSON and Markdown files
+# base_path = '../artifact/global_ai_use_case_analysis.openai'   # Base path for the openai generated JSON and Markdown files
+# base_path = '../artifact/ai_use_case_analysis.local'   # Base path for the local generated JSON and Markdown files
 base_path = '../artifact/global_ai_use_case_analysis.local'   # Base path for the local generated JSON and Markdown files
 
 # Convert the JSON file to Markdown
