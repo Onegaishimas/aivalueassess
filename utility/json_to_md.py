@@ -30,9 +30,9 @@ def json_to_md(base_path):
                 md.write(f"**Bureau / Department:** {case.get('Bureau / Department', 'N/A')}\n\n")
                 md.write(f"**Use Case Name:** {case.get('Use Case Name', 'N/A')}\n\n")
 
-                # Write the prompt and response details
-                md.write("### Prompt\n\n")
-                md.write(f"{case.get('Prompt', 'N/A')}\n\n")
+                # # Write the prompt and response details
+                # md.write("### Prompt\n\n")
+                # md.write(f"{case.get('Prompt', 'N/A')}\n\n")
 
                 md.write("### Response\n\n")
                 md.write(f"{case.get('Response', 'N/A')}\n\n")
@@ -47,7 +47,8 @@ def json_to_md(base_path):
 
 # Example usage
 
-base_path = '../artifact/ai_use_case_analysis.openai'   # Base path for the JSON and Markdown files
+# base_path = '../artifact/ai_use_case_analysis.openai'   # Base path for the openai generated JSON and Markdown files
+base_path = '../artifact/global_ai_use_case_analysis.local'   # Base path for the local generated JSON and Markdown files
 
 # Convert the JSON file to Markdown
 json_to_md(base_path)

@@ -119,7 +119,7 @@ Please provide a structured and detailed response addressing all points above.
             "Agency": agency,
             "Bureau / Department": bureau_dept,
             "Use Case Name": use_case_name,
-            "Prompt": prompt,
+            # "Prompt": prompt, # Commented out to avoid saving the prompt in the JSON file
             "Response": response_text
         })
 
@@ -130,7 +130,7 @@ Please provide a structured and detailed response addressing all points above.
                 "Agency": agency,
                 "Bureau / Department": bureau_dept,
                 "Use Case Name": use_case_name,
-                "Prompt": prompt,
+                # "Prompt": prompt, # Commented out to avoid saving the prompt in the JSON file
                 "Response": response_text
             }, file)
             file.write("\n")
